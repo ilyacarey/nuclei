@@ -18,3 +18,5 @@ apply watershed function to separate touching nuclei;
 identify individual nuclei as regions of interest (ROIs) using the Analyse Particles function (size>500 pixel units, circularity 0.5-1); 
 overlay the ROIs onto the corresponding first channel image and quantify the “mean gray value” (dig-dUTP uptake) per ROI; 
 export results to an Excel file using a plugin (https://imagej.net/plugins/read-and-write-excel).
+
+Written for MPhil at Cambridge University in Krude Lab (2021-2022).
