@@ -21,25 +21,31 @@
 	// (1) specify the general directory of the files (you might not need to change this)
 		general_directory="C:/Users/ilyai/Pictures/Camera Roll/Confocal microscopy/";
 	// (2) specify date images were taken (i.e. start of folder name)
-		date="11 may";
+		date="18 march";
 	// (3) specify treatment (i.e. rest of folder name)
-		treatment="furamidine + DB867"
+		treatment="asynchronous";
 	// (4) specify the complete date the images were taken (to add to outputted spreadsheet)
-		full_date="11 May 2022";
+		full_date="18 March 2022";
 		
 //the rest of the script you don't need to change
+
+//stop images from popping up
+setBatchMode(true);
 
 //setting files directory
 d1=general_directory+date+" "+treatment;
 //setting info sheet directory 
 d2=general_directory+date+" "+treatment+"/"+date+" info.csv";
-//setting output file 
+//setting output file directory
 d3=general_directory+date+" "+treatment+"/"+date+" "+treatment+" data.xlsx]";
-		
-//stop images from popping up
-setBatchMode(true);
 
 //opening excel file where results are to be stored
+run("Read and Write Excel", "file_mode=read_and_open file=["+d3);
+
+//making sure there's no data waiting to be queued already by deleting existing results + deleting existing data
+run("Read and Write Excel", "file_mode=write_and_close");
+File.delete(general_directory+date+" "+treatment+"/"+date+" "+treatment+" data.xlsx");
+run("Clear Results");
 run("Read and Write Excel", "file_mode=read_and_open file=["+d3);
 
 //opening info sheet which stores which image corresponds to what treatment
@@ -67,7 +73,7 @@ for (i = 0; i < files.length; i++) {
 
 	//converting into black and white
 	setAutoThreshold("Default dark");
-	setThreshold(1000, 65535);
+//	setThreshold(1000, 65535); //you could choose to specify the threshold settings. Works well with auto threshold. 
 	setOption("BlackBackground", false);
 	run("Convert to Mask");
 
@@ -81,7 +87,7 @@ for (i = 0; i < files.length; i++) {
 	run("Set Measurements...", "mean display redirect=[C1-image"+m + n +".oir Group:1 Level:1 Area:1] decimal=3");
 
 	//counting particles in red channel
-	run("Analyze Particles...", "size=500-Infinity pixel circularity=0.50-1.00 display");
+	run("Analyze Particles...", "size=350-Infinity pixel circularity=0.50-1.00 display");
 	
 	//adding treatment label for results
 	for (q=0; q<nResults; q++) {
