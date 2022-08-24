@@ -14,9 +14,9 @@
 	// (1) specify the general directory of the files (you might not need to change this)
 		general_directory="C:/Users/ilyai/Pictures/Camera Roll/Confocal microscopy/";
 	// (2) specify date images were taken (i.e. start of folder name)
-		date="27 april";
+		date="17 august";
 	// (3) specify treatment (i.e. rest of folder name)
-		treatment="furamidine + DB867"
+		treatment="asyn in vitro";
 		
 //the rest of the script you don't need to change
 
