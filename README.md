@@ -26,4 +26,4 @@ identify individual nuclei as regions of interest (ROIs) using the Analyse Parti
 overlay the ROIs onto the corresponding first channel image and quantify the “mean gray value” (dig-dUTP uptake) per ROI; 
 export results to an Excel file using a plugin (https://imagej.net/plugins/read-and-write-excel).
 
-Written for MPhil at Cambridge University in Krude Lab (2021-2022).
+Written for MPhil at Cambridge University in Krude Lab (2021-2022). Draft MPhil (with more detailed explanations of scripts available here: https://drive.google.com/file/d/1rleGsVvtBheCkN-T50nPnIKQlWp4YIUM/view?usp=sharing
