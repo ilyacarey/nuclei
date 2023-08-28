@@ -15,11 +15,8 @@ library(ggridges)
 library(scales)
 library(gridExtra)
 
-#setting working directory (where the data is)
-setwd("C:/Users/ilyai/Pictures/Camera Roll/Confocal microscopy/5 july asyn brdu inhibitors")
-
 #importing data, relabelling column, and setting treatment as a factor
-data <-rename(read_excel("5 july asyn brdu inhibitors data.xlsx", skip=1), treatment = Label ) 
+data <-rename(read_excel(file.choose(), skip=1), treatment = Label ) 
 data$treatment <- factor(data$treatment, levels = unique(data$treatment), ordered=TRUE)
 
 #Normalising data. The modal value for nuclei intensity value is substracted for each experiment
@@ -51,5 +48,3 @@ grid.arrange(p1, p2, ncol=2)
 
 #you can easily export the plots using code below - uncomment it if you want to do so. 
 #ggsave("Ridgeline plot.svg", p1 , width = 7.5, height = 5.5)
-
-
